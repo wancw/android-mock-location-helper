@@ -18,17 +18,25 @@
             .row::after { clear: both; }
 
             [class*="span"] { float: left; margin-left: 30px; }
-            .span8 { width: 770px; }
+            .span1 { width:  70px; }
+            .span2 { width: 170px; }
+            .span3 { width: 270px; }
             .span4 { width: 370px; }
+            .span8 { width: 770px; }
             .span12 { width: 1170px;}
 
-            #map_canvas {
-                height: 480px;
-                border: solid 1px #999;
+            .button {
+                background-color: #E6E6E6;
+                border-width: 1px;
+                border-radius: 4px;
+                font-size: 14px;
             }
-            #map_hints {
-                color: #666;
-            }
+
+            #map_canvas { height: 480px; border: solid 1px #999; }
+            #map_hints { color: #666; }
+
+            #device_list { list-style: none; margin: 0; padding: 0; }
+            #device_list li { padding: 5px 0; }
 
             #footer {
                 margin-top: 15px;
@@ -79,12 +87,19 @@
                     <div id="map_canvas" ></div>
                     <p id="map_hints">（提示文字）</p>
                 </div>
-                <div id="device_list_container" class="span4">
+                <div class="span3">
                     <h3>裝置列表</h3>
-                    <ul id="device_list">
-                        <li>1</li>
-                        <li>2</li>
-                    </ul>
+                    <div class="row">
+                        <div class="span2">
+                            <ul id="device_list">
+                                <li><a>emulator-5554</a></li>
+                                <li><a>emulator-5556</a></li>
+                            </ul>
+                        </div>
+                        <div class="span1">
+                            <button class="button" style="width: 100%;">更新</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="footer">© 2012 <a href="http://about.me/wancw">WanCW</a>. All rights reserveed.</div>
