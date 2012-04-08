@@ -4,10 +4,39 @@
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <title>AMLH</title>
         <style type="text/css">
-            html { height: 100% }
-            body { height: 100%; margin: 0; padding: 0 }
-            h1 { text-align: center;}
-            #map_canvas { width:640px; height:480px; margin: 0 auto; }
+            body {
+                height: 100%; margin: 0; padding: 0;
+                font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, 'Lucida Grande', sans-serif;
+            }
+            a { color: #08C; text-decoration: none; }
+            a:hover, a:active { outline: 0; }
+            a:hover { color: #005580; text-decoration: underline; }
+
+            .container { margin: 0 auto; width: 1170px; }
+            .row { margin-left: -30px; }
+            .row::before, .row::after { display: table; content: ""; }
+            .row::after { clear: both; }
+
+            [class*="span"] { float: left; margin-left: 30px; }
+            .span8 { width: 770px; }
+            .span4 { width: 370px; }
+            .span12 { width: 1170px;}
+
+            #map_canvas {
+                height: 480px;
+                border: solid 1px #999;
+            }
+            #map_hints {
+                color: #666;
+            }
+
+            #footer {
+                margin-top: 15px;
+                padding: 24px 0;
+                color: #999;
+                text-align: center;
+                border-top: 1px solid #CCC;
+            }
         </style>
         <script type="text/javascript"
             src="http://maps.googleapis.com/maps/api/js?sensor=false">
@@ -43,7 +72,22 @@
         </script>
     </head>
     <body onload="initialize()">
-        <h1>Android Mock Location Helper</h1>
-        <div id="map_canvas"></div>
+        <div class="container">
+            <h1>Android Mock Location Helper</h1>
+            <div class="row">
+                <div class="span8">
+                    <div id="map_canvas" ></div>
+                    <p id="map_hints">（提示文字）</p>
+                </div>
+                <div id="device_list_container" class="span4">
+                    <h3>裝置列表</h3>
+                    <ul id="device_list">
+                        <li>1</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer">© 2012 <a href="http://about.me/wancw">WanCW</a>. All rights reserveed.</div>
+        </div>
     </body>
 </html>
