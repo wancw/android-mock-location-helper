@@ -9,8 +9,8 @@ a:hover { color: #005580; text-decoration: underline; }
 
 .container { margin: 0 auto; width: 1170px; }
 .row { margin-left: -30px; }
-.row::before, .row::after { display: table; content: ""; }
-.row::after { clear: both; }
+.row:before, .row:after { display: table; content: ""; }
+.row:after { clear: both; }
 
 [class*="span"] { float: left; margin-left: 30px; }
 .span1 { width:  70px; }
@@ -32,6 +32,8 @@ a:hover { color: #005580; text-decoration: underline; }
 
 #device_list { list-style: none; margin: 0; padding: 0; }
 #device_list li { padding: 5px 0; }
+#device_list li:before { content: "√ "; color: #FFFFFF; }
+#device_list li.selected:before { color: #000000; }
 
 #footer {
     margin-top: 15px;
