@@ -3,81 +3,10 @@
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <title>AMLH - Android Mock Location Helper</title>
-        <style type="text/css">
-            body {
-                height: 100%; margin: 0; padding: 0;
-                font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, 'Lucida Grande', sans-serif;
-            }
-            a { color: #08C; text-decoration: none; }
-            a:hover, a:active { outline: 0; }
-            a:hover { color: #005580; text-decoration: underline; }
-
-            .container { margin: 0 auto; width: 1170px; }
-            .row { margin-left: -30px; }
-            .row::before, .row::after { display: table; content: ""; }
-            .row::after { clear: both; }
-
-            [class*="span"] { float: left; margin-left: 30px; }
-            .span1 { width:  70px; }
-            .span2 { width: 170px; }
-            .span3 { width: 270px; }
-            .span4 { width: 370px; }
-            .span8 { width: 770px; }
-            .span12 { width: 1170px;}
-
-            .button {
-                background-color: #E6E6E6;
-                border-width: 1px;
-                border-radius: 4px;
-                font-size: 14px;
-            }
-
-            #map_canvas { height: 480px; border: solid 1px #999; }
-            #map_hints { color: #666; }
-
-            #device_list { list-style: none; margin: 0; padding: 0; }
-            #device_list li { padding: 5px 0; }
-
-            #footer {
-                margin-top: 15px;
-                padding: 24px 0;
-                color: #999;
-                text-align: center;
-                border-top: 1px solid #CCC;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
         <script type="text/javascript"
-            src="http://maps.googleapis.com/maps/api/js?sensor=false">
-        </script>
-        <script type="text/javascript">
-        function updateMapByCurrentPosition(map, position) {
-            var coordinates = position.coords;
-            var currentLocation = new google.maps.LatLng(
-                coordinates.latitude, coordinates.longitude);
-            map.setCenter(currentLocation);
-            var marker = new google.maps.Marker({
-                position: currentLocation,
-                map: map
-            });
-        }
-        function getCurrentLocation(map) {
-            if (navigator.geolocation) {
-                var gl = navigator.geolocation;
-                gl.getCurrentPosition(function(p){
-                    updateMapByCurrentPosition(map,p)});
-            }
-        }
-        function initialize() {
-            var myOptions = {
-                center: new google.maps.LatLng(-34.397, 150.644),
-                zoom: 18,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("map_canvas"),
-                myOptions);
-            getCurrentLocation(map);
-        }
-        </script>
+            src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="/main.js"></script>
     </head>
     <body onload="initialize()">
         <div class="container">
