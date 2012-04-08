@@ -12,6 +12,20 @@ module AdbInterface
       devices.to_json
     end
 
+    post '/adb/device/:name/geo_location' do
+      device_name = params[:name]
+      longitude = params[:longitude]
+      latitude = params[:latitude]
+
+      output = `adb -s #{device_name} emu geo fix #{longitude} #{latitude} 2>&1`
+
+      if output.length > 0
+        {
+          :status => 'ERROR',
+          :error => output.split(/\n/)[0].sub('error: ', '') }.json
+      end
+    end
+
     def devices
       lines = `adb devices`.split(/\n/)
       lines.delete_at(0)
