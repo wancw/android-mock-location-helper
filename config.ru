@@ -1,3 +1,7 @@
-require './main'
+require 'bundler/setup'
 
-run Sinatra::Application
+$LOAD_PATH << '.'
+
+require 'main'
+
+run Main::Application
