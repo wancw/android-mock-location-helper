@@ -30,8 +30,10 @@
 
     var initRefreshDeviceListButton = function (btn) {
         btn.click(function () {
-            $('#device_list li').not('.nav-header').remove();
             btn.button('loading');
+            $('#device_list').parent().hide();
+            $('#device_list li').not('.nav-header').remove();
+
             $.getJSON('/adb/devices', function(data) {
                 if (data.devices) {
                     var html = $.map(data.devices, function(e,i){
@@ -44,6 +46,7 @@
                     $('#emulators-header').after(html);
                     $('#device_list li[class!="nav-header"]:eq(0) a').click();
                 }
+                $('#device_list').parent().show();
                 btn.button('reset');
             });
         });
