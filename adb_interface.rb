@@ -9,7 +9,10 @@ module AdbInterface
     before { content_type :json }
 
     get '/devices' do
-      devices.to_json
+      {
+        :status => 'OK',
+        :devices => devices
+      }.to_json
     end
 
     post '/device/:name/geo_location' do
@@ -29,10 +32,9 @@ module AdbInterface
     def devices
       lines = `adb devices`.split(/\n/)
       lines.delete_at(0)
-      lines.inject({}) do |devices, line|
+      lines.map do |line|
         columns = line.split(/\t/)
-        devices[columns[0]] = columns[1]
-        devices
+        { :name => columns[0], :status => columns[1] }
       end
     end
   end
