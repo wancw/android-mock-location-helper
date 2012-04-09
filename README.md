@@ -1,6 +1,6 @@
-## AMLH (Android Mock Location Helper)
+## Android Mock Location Helper (AMLH)
 
-AMLH is a tools send mock GPS location to Android emulator.
+AMLH is a tool sends mock GPS location to Android emulator.
 
 ## Requirement
 
@@ -9,7 +9,7 @@ AMLH is a tools send mock GPS location to Android emulator.
 
 ## Usage
 
-    git clone https://github.com/wancw/amlh.git
+    git clone https://github.com/wancw/android-mock-location-helper.git
     cd amlh
     bundle install
     rackup
