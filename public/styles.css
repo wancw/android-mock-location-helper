@@ -1,44 +1,8 @@
-body {
-    height: 100%; margin: 0; padding: 0;
-    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, 'Lucida Grande', sans-serif;
-}
-
-a { color: #08C; text-decoration: none; }
-a:hover, a:active { outline: 0; }
-a:hover { color: #005580; text-decoration: underline; }
-
-.container { margin: 0 auto; width: 1170px; }
-.row { margin-left: -30px; }
-.row:before, .row:after { display: table; content: ""; }
-.row:after { clear: both; }
-
-[class*="span"] { float: left; margin-left: 30px; }
-.span1 { width:  70px; }
-.span2 { width: 170px; }
-.span3 { width: 270px; }
-.span4 { width: 370px; }
-.span8 { width: 770px; }
-.span12 { width: 1170px;}
-
-.button {
-    background-color: #E6E6E6;
-    border-width: 1px;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-#map_canvas { height: 480px; border: solid 1px #999; }
-#map_hints { color: #666; }
-
-#device_list { list-style: none; margin: 0; padding: 0; }
-#device_list li { padding: 5px 0; }
-#device_list li:before { content: "√ "; color: #FFFFFF; }
-#device_list li.selected:before { color: #000000; }
+#map_canvas { height: 400px; }
 
 #footer {
     margin-top: 15px;
     padding: 24px 0;
     color: #999;
     text-align: center;
-    border-top: 1px solid #CCC;
 }

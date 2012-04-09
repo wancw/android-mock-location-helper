@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <title>AMLH - Android Mock Location Helper</title>
+        <link rel="stylesheet" type="text/css" href="/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/styles.css" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -10,24 +11,29 @@
     </head>
     <body onload="initialize()">
         <div class="container">
-            <h1>Android Mock Location Helper</h1>
+            <div class="page-header">
+                <h1>Android Mock Location Helper</h1>
+            </div>
             <div class="row">
-                <div class="span8">
-                    <div id="map_canvas" ></div>
-                    <p id="map_hints">（提示文字）</p>
+                <div class="span9">
+                    <div class="thumbnail">
+                        <div id="map_canvas"></div>
+                        <div class="caption">（提示文字）</div>
+                    </div>
                 </div>
                 <div class="span3">
-                    <h3>裝置列表</h3>
-                    <div class="row">
-                        <div class="span2">
-                            <ul id="device_list">
-                                <li><a>emulator-5554</a></li>
-                                <li class="selected"><a>emulator-5556</a></li>
-                            </ul>
-                        </div>
-                        <div class="span1">
-                            <button class="button" style="width: 100%;">更新</button>
-                        </div>
+                    <div style="margin: 5px 0;">
+                        <button class="btn pull-right">更新</button>
+                        <h3>裝置列表</h3>
+                    </div>
+                    <div class="well" style="padding: 8px 0px;">
+                        <ul id="device_list" class="nav nav-list">
+                            <li class="nav-header">模擬器</li>
+                            <li><a>emulator-5554</a></li>
+                            <li class="active"><a>emulator-5556</a></li>
+                            <li class="nav-header">手機</li>
+                            <li><a>Other Device</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
