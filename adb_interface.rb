@@ -8,11 +8,11 @@ module AdbInterface
 
     before { content_type :json }
 
-    get '/adb/devices' do
+    get '/devices' do
       devices.to_json
     end
 
-    post '/adb/device/:name/geo_location' do
+    post '/device/:name/geo_location' do
       device_name = params[:name]
       longitude = params[:longitude]
       latitude = params[:latitude]
@@ -22,7 +22,7 @@ module AdbInterface
       if output.length > 0
         {
           :status => 'ERROR',
-          :error => output.split(/\n/)[0].sub('error: ', '') }.json
+          :error => output.split(/\n/)[0].sub('error: ', '') }.to_json
       end
     end
 
