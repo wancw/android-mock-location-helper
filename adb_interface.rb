@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 
 module AdbInterface
   class Application < Sinatra::Base
