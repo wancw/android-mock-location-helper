@@ -10,14 +10,28 @@
         return new google.maps.Map(document.getElementById(id), mapOptions);
     };
 
+    var displayCurrentPosition = function(latLang) {
+        $('#debug_message').text('標示位置：' + latLang);
+    };
+
     var updateMapByCurrentPosition = function (map, position) {
         var coordinates = position.coords;
         var currentLocation = new google.maps.LatLng(
             coordinates.latitude, coordinates.longitude);
         map.setCenter(currentLocation);
+        displayCurrentPosition(currentLocation);
         var marker = new google.maps.Marker({
             position: currentLocation,
+            draggable: true,
             map: map
+        });
+
+        google.maps.event.addListener(map, 'rightclick', function(event) {
+            marker.setPosition(event.latLng);
+        });
+
+        google.maps.event.addListener(marker, 'position_changed', function() {
+            displayCurrentPosition(marker.getPosition());
         });
     }
 
