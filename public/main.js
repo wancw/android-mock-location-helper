@@ -10,8 +10,11 @@
         return new google.maps.Map(document.getElementById(id), mapOptions);
     };
 
-    var displayCurrentPosition = function(latLang) {
-        $('#debug_message').text('標示位置：' + latLang);
+    var lastestLocation;
+
+    var displayCurrentPosition = function(latLng) {
+        lastestLocation = latLng;
+        $('#debug_message').text('標示位置：' + latLng);
     };
 
     var updateMapByCurrentPosition = function (map, position) {
@@ -66,6 +69,25 @@
         });
     };
 
+    var initSendToDeviceButton = function (btn) {
+        btn.click(function () {
+            btn.button('loading');
+            var device_name = $('#device_list li.active a').text();
+
+            if (!lastestLocation || device_name.length <= 0) {
+                return;
+            }
+
+            var data = {
+                latitude: lastestLocation.lat(),
+                longitude: lastestLocation.lng()
+            };
+
+            $.post('/adb/device/' + device_name + '/geo_location', data,
+                function() { btn.button('reset'); });
+        });
+    };
+
     var initialize = function () {
         var map = initMap("map_canvas");
 
@@ -78,6 +100,8 @@
 
         initRefreshDeviceListButton($("#refresh_device_list"));
         $("#refresh_device_list").click();
+
+        initSendToDeviceButton($("#send_to_device"));
     };
 
     $(initialize);
