@@ -49,7 +49,7 @@
         btn.click(function () {
             btn.button('loading');
             $('#device_list').parent().hide();
-            $('#device_list li').not('.nav-header').remove();
+            $('#device_list').empty();
 
             $.getJSON('/adb/devices', function(data) {
                 if (data.devices) {
@@ -60,8 +60,8 @@
                             return '';
                         }
                     }).join('');
-                    $('#emulators-header').after(html);
-                    $('#device_list li[class!="nav-header"]:eq(0) a').click();
+                    $('#device_list').append(html);
+                    $('#device_list li:eq(0) a').click();
                 }
                 $('#device_list').parent().show();
                 btn.button('reset');
