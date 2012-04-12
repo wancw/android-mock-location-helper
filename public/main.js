@@ -14,7 +14,8 @@
 
     var displayCurrentPosition = function(latLng) {
         lastestLocation = latLng;
-        $('#debug_message').text('標示位置：' + latLng);
+        $('#longitude_info').text(latLng.lng());
+        $('#latitude_info').text(latLng.lat());
     };
 
     var updateMapByCurrentPosition = function (map, position) {
@@ -52,9 +53,11 @@
             $('#device_list').empty();
 
             $.getJSON('/adb/devices', function(data) {
+                var hasEmulators = false;
                 if (data.devices) {
                     var html = $.map(data.devices, function(e,i){
                         if (e.name.indexOf('emulator-') == 0) {
+                            hasEmulators = true;
                             return ['<li><a>', e.name, '</a></li>'].join('');
                         } else {
                             return '';
@@ -63,6 +66,7 @@
                     $('#device_list').append(html);
                     $('#device_list li:eq(0) a').click();
                 }
+                $('#send_to_device').attr('disabled', !hasEmulators);
                 $('#device_list').parent().show();
                 btn.button('reset');
             });

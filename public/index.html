@@ -19,13 +19,18 @@
                 <div class="span9">
                     <div class="thumbnail">
                         <div id="map_canvas"></div>
-                        <div style="margin: 10px 0;">
-                            <button id="send_to_device" class="btn pull-right" data-loading-text="發送中……">送出</button>
-                            <p id="debug_message" class="caption"> </p>
-                        </div>
+                        <p class="caption">按右鍵設定位置</p>
                     </div>
                 </div>
                 <div class="span3">
+                    <div style="margin: 5px 0;">
+                        <button id="send_to_device" class="btn pull-right" data-loading-text="發送中……" disabled>送出</button>
+                        <h3>目前標示位置</h3>
+                    </div>
+                    <div class="well">
+                            經度：<span id="longitude_info"></span><br/>
+                            緯度：<span id="latitude_info"></span>
+                    </div>
                     <div style="margin: 5px 0;">
                         <button id="refresh_device_list" class="btn pull-right" data-loading-text="讀取中……">更新</button>
                         <h3>模擬器列表</h3>
