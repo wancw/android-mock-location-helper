@@ -29,3 +29,7 @@ Client:
     bundle exec rackup
 
     # Open http://localhost:9292/ in your browser.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wancw/android-mock-location-helper/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
