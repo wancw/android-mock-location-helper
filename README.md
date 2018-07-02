@@ -1,8 +1,8 @@
-## Android Mock Location Helper (AMLH)
+**This project is no longer maintained. Use at your own risk.**
 
-AMLH is a tool sends mock GPS location to Android emulator.
+## Android Mock Location Helper
 
-![screenshot](http://f.cl.ly/items/1J2y080G2b2P3D0E1R0a/Screen%20shot%202012-04-12%20at%20%E4%B8%8A%E5%8D%8811.42.38.png "screenshot")
+A Web interface sends mock GPS location to Android emulator.
 
 ## Requirements
 
@@ -29,7 +29,3 @@ Client:
     bundle exec rackup
 
     # Open http://localhost:9292/ in your browser.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wancw/android-mock-location-helper/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
